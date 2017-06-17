@@ -1,0 +1,28 @@
+.header{
+	text-align: center;
+	background-color: blue;
+	background-image: url(http://static1.businessinsider.com/image/51865192eab8eaf86a000014-1200/007mikebrodie-1.jpg);
+	background-repeat: repeat-y;
+	background-size: 100%;
+	background-position: 75% 65%;
+	height: 150px;
+	width: 100%;
+	color: white;
+	font-size: 75px;
+	padding-top: 80px;
+}
+.containerTrainTime{
+	border: 5px solid orange;
+	margin:20px 10px 20px 10px;
+	border-radius: 15px;
+}
+.currentTrainTitle{
+	background-color: orange;
+}
+.currentTrainTable{
+	padding: 5px;
+}
+.currentName{
+	text-align: left;
+}
+.
