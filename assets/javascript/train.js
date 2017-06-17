@@ -1,3 +1,11 @@
+
+// var currentTime = moment().format('HH:mm');
+// console.log(currentTime);
+// var currentTime = moment().subract();
+// currentTime.fromNow();
+var database = firebase.database();
+
+
 // onclick that submits data to the table
 // create a variable that holds the new submits
 $("#addTrain").on("click", function(event){
@@ -17,6 +25,8 @@ $("#addTrain").on("click", function(event){
 	var userInputDestination = $("<td>");
 	var userInputfrequency = $("<td>");
 	var userInputTrainTime = $("<td>");
+	// moment.js part
+	var userTrainMinutesAway = $("<td>") 
 	
 	// append all the user inputs into the created table slots
 	userInputName.append(trainNameInput);
@@ -25,5 +35,13 @@ $("#addTrain").on("click", function(event){
 	userInputTrainTime.append(firstTrainTimeInput);
 	
 	// append all the created table slots to the table's html
-	$(".currentTrainTable").append(userInputName, userInputDestination, userInputfrequency, userInputTrainTime)
+	$(".currentTrainTable").append(userInputName, userInputDestination, userInputfrequency, userInputTrainTime, userTrainMinutesAway)
+	// add this info to the firebase database
+	database.ref().set({trainName: userInputName});
+	database.ref().set({trainDestination: userInputDestination});
+	database.ref().set({trainFrequency: userInputfrequency});
+	database.ref().set({trainTime: userInputTrainTime});
+	database.ref().on("value", function (snapshot){
+  	console.log(snapshot.val());
+  });
 })

@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<title>Train Schedule</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-	<script
-			  src="https://code.jquery.com/jquery-3.2.1.js"
-			  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-			  crossorigin="anonymous"></script>
+
 </head>
 <body>
 <div class="header">Train Hopper</div>
@@ -26,28 +24,28 @@
 		<td>Mortville</td>
 		<td>15</td>
 		<td>02:34</td>
-		<td>5</td>
+		<td class="currentTimeTable"></td>
 	</tr>
 	<tr>
 		<td>Fly into Oz</td>
 		<td>Oz</td>
 		<td>30</td>
 		<td>03:14</td>
-		<td>10</td>
+		<td class="currentTimeTable"></td>
 	</tr>
 	<tr>
 		<td>Toon Town Choo Choo</td>
 		<td>Toon Town</td>
 		<td>27</td>
 		<td>04:20</td>
-		<td>7</td>
+		<td class="currentTimeTable"></td>
 	</tr>
 	<tr>
 		<td>Fantasia flights</td>
 		<td>Fantasia</td>
 		<td>60</td>
 		<td>03:20</td>
-		<td>8</td>
+		<td class="currentTimeTable"></td>
 	</tr>
 
 </table>
@@ -66,6 +64,30 @@
 <button id="addTrain">Submit</button>
 	
 </div>
+
+<script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBJay88dopL9oUYYrTQzGb8IwP3J_iFlwE",
+    authDomain: "train-scheduler-1de1a.firebaseapp.com",
+    databaseURL: "https://train-scheduler-1de1a.firebaseio.com",
+    projectId: "train-scheduler-1de1a",
+    storageBucket: "train-scheduler-1de1a.appspot.com",
+    messagingSenderId: "533226645604"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script
+		src="https://code.jquery.com/jquery-3.2.1.js"
+		integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+		crossorigin="anonymous">
+	</script>
+	<!-- <script src="moment.js"></script>
+	<script>
+	    moment().format();
+	</script> -->
 
 
 <script type="text/javascript" src="assets/javascript/train.js"></script>
