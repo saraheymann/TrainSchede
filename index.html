@@ -5,92 +5,64 @@
 	<title>Train Schedule</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+<script>
+    moment().format();
+</script>
 
 </head>
 <body>
-<div class="header">Train Hopper</div>
-<div class="containerTrainTime">
-<div class="currentTrainTitle">Current Train Schedule</div>
-<table class="currentTrainTable">
-	<tr>
-		<th class="currentName">Train name</th>
-		<th>Destination</th>
-		<th>Frequency (mins)</th>
-		<th>Next Arrival</th>
-		<th>Minutes Away</th>
-	</tr>
-	<tr>
-		<td>Mortville Express</td>
-		<td>Mortville</td>
-		<td>15</td>
-		<td>02:34</td>
-		<td class="currentTimeTable"></td>
-	</tr>
-	<tr>
-		<td>Fly into Oz</td>
-		<td>Oz</td>
-		<td>30</td>
-		<td>03:14</td>
-		<td class="currentTimeTable"></td>
-	</tr>
-	<tr>
-		<td>Toon Town Choo Choo</td>
-		<td>Toon Town</td>
-		<td>27</td>
-		<td>04:20</td>
-		<td class="currentTimeTable"></td>
-	</tr>
-	<tr>
-		<td>Fantasia flights</td>
-		<td>Fantasia</td>
-		<td>60</td>
-		<td>03:20</td>
-		<td class="currentTimeTable"></td>
-	</tr>
+	<div class="header">Train Hopper</div>
+	<div class="containerTrainTime">
+	<div class="containerTitle">Current Train Schedule</div>
+	<table class="currentTrainTable" width="100%">
+		<tr>
+			<th class="keys">Train name</th>
+			<th class="keys">Destination</th>
+			<th class="keys">Frequency (mins)</th>
+			<th class="keys">Next Arrival</th>
+			<th class="keys">Minutes Away</th>
+		</tr>
+	</table>
+	</div>
 
-</table>
-</div>
-<div class="containerInput">
-<div>Add Train</div>
-<div>Train Name</div>
-<input class="trainName">
-<div>Destination</div>
-<input class="destination">
-<div>First Train Time (HH:mm military time</div>
-<input class="firstTrainTime">
-<div>Frequency (min)</div>
-<input class="frequencyInput">
-<br>
-<button id="addTrain">Submit</button>
-	
-</div>
+	<div class="containerTrainTime">
+		<div class="containerTitle">Add Train</div>
+		<div class= "inputTitle">Train Name</div>
+		<input class="trainName">
+		<div class= "inputTitle">Destination</div>
+		<input class="destination">
+		<div class= "inputTitle">First Train Time (HH:mm military time</div>
+		<input class="firstTrainTime">
+		<div class= "inputTitle">Frequency (min)</div>
+		<input class="frequencyInput">
+		<br>
+		<button id="addTrain">Submit</button>
+		
+	</div>
 
-<script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBJay88dopL9oUYYrTQzGb8IwP3J_iFlwE",
-    authDomain: "train-scheduler-1de1a.firebaseapp.com",
-    databaseURL: "https://train-scheduler-1de1a.firebaseio.com",
-    projectId: "train-scheduler-1de1a",
-    storageBucket: "train-scheduler-1de1a.appspot.com",
-    messagingSenderId: "533226645604"
-  };
-  firebase.initializeApp(config);
-</script>
-
-<script
-		src="https://code.jquery.com/jquery-3.2.1.js"
-		integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-		crossorigin="anonymous">
-	</script>
-	<!-- <script src="moment.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
 	<script>
-	    moment().format();
-	</script> -->
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyBJay88dopL9oUYYrTQzGb8IwP3J_iFlwE",
+	    authDomain: "train-scheduler-1de1a.firebaseapp.com",
+	    databaseURL: "https://train-scheduler-1de1a.firebaseio.com",
+	    projectId: "train-scheduler-1de1a",
+	    storageBucket: "train-scheduler-1de1a.appspot.com",
+	    messagingSenderId: "533226645604"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+
+	<script
+			src="https://code.jquery.com/jquery-3.2.1.js"
+			integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+			crossorigin="anonymous">
+		</script>
 
 
-<script type="text/javascript" src="assets/javascript/train.js"></script>
+	<script type="text/javascript" src="assets/javascript/train.js"></script>
 
 </body>
 </html>

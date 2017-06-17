@@ -1,8 +1,4 @@
 
-// var currentTime = moment().format('HH:mm');
-// console.log(currentTime);
-// var currentTime = moment().subract();
-// currentTime.fromNow();
 var database = firebase.database();
 
 
@@ -19,28 +15,34 @@ $("#addTrain").on("click", function(event){
 	var firstTrainTimeInput = $(".firstTrainTime").val().trim();
 	// creat a variable that gets the value from the add frequency
 	var frequencyInput = $(".frequencyInput").val().trim();
-
+	var minutesAway = moment().endOf('hour').fromNow(firstTrainTimeInput);
 	// variable to hold the user input
+	var emptyTr = $("<tr>");
 	var userInputName = $("<td>");
 	var userInputDestination = $("<td>");
 	var userInputfrequency = $("<td>");
 	var userInputTrainTime = $("<td>");
-	// moment.js part
+	// // moment.js part
 	var userTrainMinutesAway = $("<td>") 
 	
-	// append all the user inputs into the created table slots
+	// // append all the user inputs into the created table slots
 	userInputName.append(trainNameInput);
 	userInputDestination.append(trainDestinationInput);
 	userInputfrequency.append(frequencyInput);
 	userInputTrainTime.append(firstTrainTimeInput);
+	userTrainMinutesAway.append(minutesAway);
+
+	emptyTr.append(userInputName, userInputDestination, userInputfrequency, userInputTrainTime, userTrainMinutesAway)
 	
 	// append all the created table slots to the table's html
-	$(".currentTrainTable").append(userInputName, userInputDestination, userInputfrequency, userInputTrainTime, userTrainMinutesAway)
+	$(".currentTrainTable").append(emptyTr)
 	// add this info to the firebase database
-	database.ref().set({trainName: userInputName});
-	database.ref().set({trainDestination: userInputDestination});
-	database.ref().set({trainFrequency: userInputfrequency});
-	database.ref().set({trainTime: userInputTrainTime});
+	database.ref().push({
+		TrainName: trainNameInput,
+		TrainDestination: trainDestinationInput,
+		TrainTime: firstTrainTimeInput,
+		Frequency: frequencyInput
+	});
 	database.ref().on("value", function (snapshot){
   	console.log(snapshot.val());
   });
