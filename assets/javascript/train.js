@@ -15,7 +15,22 @@ $("#addTrain").on("click", function(event){
 	var firstTrainTimeInput = $(".firstTrainTime").val().trim();
 	// creat a variable that gets the value from the add frequency
 	var frequencyInput = $(".frequencyInput").val().trim();
-	var minutesAway = moment().endOf('hour').fromNow(firstTrainTimeInput);
+	
+	// moments.js section
+	// user input pushed back a year so that it comes before time
+	var firstTimeConverted = moment(firstTrainTimeInput, "hh:mm").subtract(1, "years");
+	// now
+	var now = moment();
+	// difference between the times in minutes
+	var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+	// multiplying the remainder by the frequency
+	var tRemainder = diffTime % frequencyInput;
+	// the frequency minus the last time the train came
+	var tMinutesTillTrain = frequencyInput - tRemainder;
+	var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+	var nextTrainFormatted = moment(nextTrain).format("hh:mm");
+
+  
 	// variable to hold the user input
 	var emptyTr = $("<tr>");
 	var userInputName = $("<td>");
@@ -29,8 +44,8 @@ $("#addTrain").on("click", function(event){
 	userInputName.append(trainNameInput);
 	userInputDestination.append(trainDestinationInput);
 	userInputfrequency.append(frequencyInput);
-	userInputTrainTime.append(firstTrainTimeInput);
-	userTrainMinutesAway.append(minutesAway);
+	userInputTrainTime.append(nextTrainFormatted);
+	userTrainMinutesAway.append(tMinutesTillTrain);
 
 	emptyTr.append(userInputName, userInputDestination, userInputfrequency, userInputTrainTime, userTrainMinutesAway)
 	
@@ -40,10 +55,11 @@ $("#addTrain").on("click", function(event){
 	database.ref().push({
 		TrainName: trainNameInput,
 		TrainDestination: trainDestinationInput,
-		TrainTime: firstTrainTimeInput,
-		Frequency: frequencyInput
+		TrainTime: nextTrainFormatted,
+		Frequency: frequencyInput,
+		MinutesAwayData: tMinutesTillTrain
 	});
-	database.ref().on("value", function (snapshot){
+	database.ref().on("child_added", function (snapshot){
   	console.log(snapshot.val());
   });
 })
