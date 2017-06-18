@@ -12,36 +12,43 @@
 
 </head>
 <body>
+	
 	<div class="header">Train Hopper</div>
 	<div class="containerTrainTime">
-	<div class="containerTitle">Current Train Schedule</div>
-	<table class="currentTrainTable" width="100%">
-		<tr>
-			<th class="keys">Train name</th>
-			<th class="keys">Destination</th>
-			<th class="keys">Frequency (mins)</th>
-			<th class="keys">Next Arrival</th>
-			<th class="keys">Minutes Away</th>
-		</tr>
-	</table>
+
+		<div class="containerTitle">Current Train Schedule</div>
+		<table class="currentTrainTable" width="100%">
+			<tr>
+				<th class="keys">Train name</th>
+				<th class="keys">Destination</th>
+				<th class="keys">Frequency (mins)</th>
+				<th class="keys">Next Arrival</th>
+				<th class="keys">Minutes Away</th>
+			</tr>
+		</table>
 	</div>
 
 	<div class="containerTrainTime" id="inputContainer">
 		<div class="containerTitle">Add Train</div>
 		<div class= "inputTitle">Train Name</div>
+
 		<input class="trainName">
 		<div class= "inputTitle">Destination</div>
+
 		<input class="destination">
 		<div class= "inputTitle">First Train Time (HH:mm military time</div>
+
 		<input class="firstTrainTime">
 		<div class= "inputTitle">Frequency (min)</div>
+
 		<input class="frequencyInput">
 		<br>
 		<button id="addTrain">Submit</button>
 		
 	</div>
+
 	<div class="playlist">
-	<iframe width="600" height="250" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/328716552&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+		<iframe width="600" height="250" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/328716552&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
 	</div>
 
 	<script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
@@ -63,7 +70,6 @@
 			integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
 			crossorigin="anonymous">
 		</script>
-
 
 	<script type="text/javascript" src="assets/javascript/train.js"></script>
 

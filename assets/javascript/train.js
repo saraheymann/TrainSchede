@@ -26,7 +26,9 @@ $("#addTrain").on("click", function(event){
 	var tRemainder = diffTime % frequencyInput;
 	// the frequency minus the last time the train came
 	var tMinutesTillTrain = frequencyInput - tRemainder;
+	// now plus the mintues left until the next train in mintues
 	var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+	// formatting the equation to equal what time the train will arrive
 	var nextTrainFormatted = moment(nextTrain).format("hh:mm");
 
   
