@@ -1,7 +1,6 @@
 
 var database = firebase.database();
 
-
 // onclick that submits data to the table
 // create a variable that holds the new submits
 $("#addTrain").on("click", function(event){
@@ -37,7 +36,6 @@ $("#addTrain").on("click", function(event){
 	var userInputDestination = $("<td>");
 	var userInputfrequency = $("<td>");
 	var userInputTrainTime = $("<td>");
-	// // moment.js part
 	var userTrainMinutesAway = $("<td>") 
 	
 	// // append all the user inputs into the created table slots
@@ -51,6 +49,7 @@ $("#addTrain").on("click", function(event){
 	
 	// append all the created table slots to the table's html
 	$(".currentTrainTable").append(emptyTr)
+
 	// add this info to the firebase database
 	database.ref().push({
 		TrainName: trainNameInput,
@@ -63,3 +62,4 @@ $("#addTrain").on("click", function(event){
   	console.log(snapshot.val());
   });
 })
+
