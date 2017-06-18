@@ -16,6 +16,11 @@
 	margin:20px 10px 20px 10px;
 	border-radius: 15px;
 }
+#inputContainer{
+	width: 550px;
+	position: relative;
+	float: left;
+}
 .containerTitle{
 	background-color: #DEB887;
 	height: 28px;
@@ -37,7 +42,7 @@
 }
 input{
 	border: 1px solid black;
-	width: 300px;
+	width: 500px;
 	height: 20px;
 	margin-left: 10px
 }
@@ -48,5 +53,14 @@ button{
 	height: 25px;
 	width: 80px;
 }
+.playlist{
+	position: absolute;
+	margin-left: 625px;
+	margin-top: 26px;
+	border-radius: 50px;
+	width: 500px;
+}
+
+
 
 
